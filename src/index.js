@@ -18,8 +18,7 @@ class GameScene extends Scene {
       this.physics.world.timeScale *= 0.9999;
       this.horse.anims.setTimeScale(1/this.physics.world.timeScale);
     }
-
-    if (cursors.up.isDown && this.horse.body.touching.down) {
+    if ((cursors.up.isDown || this.input.activePointer.isDown) && this.horse.body.touching.down) {
         this.horse.body.setVelocityY(-400);
         this.horse.anims.play('jump');
     } else if(this.horse.body.touching.down && this.speed>0) {
